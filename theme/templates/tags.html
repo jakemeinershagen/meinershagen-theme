@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Tags{% endblock %}
+
+{% block content %}
+<h1>Tags</h1>
+
+{% for tag, articles in tags %}
+    <p><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a> - {{ articles | count}}
+    {% if articles | count == 1 %}
+        Post
+    {% else %}
+        Posts
+    {% endif %}
+    </p>
+{% endfor %}
+{% endblock %}

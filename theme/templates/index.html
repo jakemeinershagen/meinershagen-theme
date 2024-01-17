@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block head %}
+    {{ super() }}
+
+    <link rel="stylesheet" href="/theme/css/index.css">
+{% endblock %}
+
+{% block content %}
+<section id="content">
+<h1>Welcome!</h1>
+
+<h3><a href="{{ SITEURL }}/about-me.html">About Me</a></h3>
+
+<h3>Recent Posts</h3>
+<ul>
+    {% for article in articles[:RECENT_POST_LIST_LENGTH] %}
+        <li><article>
+            <p><strong><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></strong>
+                 - {{ article.category }}
+                 - {{ article.locale_date }}</p>
+        </article></li>
+    {% endfor %}
+</ul>
+</section>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{#
+    These are tables of contents for all series until I find a way to separate them out.
+    It does not look like pelican-series can handle creating tables of contents for each
+    series kind of like pelican does for tags and categories. I am considering trying
+    to contribute to add this functionality to the plugin.
+#}
+
+{% block title %}Tables of Contents{% endblock %}
+
+{% block content %}
+<h1>Series Tables of Contents</h1>
+
+{% for s, articles in series.items() %}
+<h3>{{ s }}</h3>
+<ol id="{{ s }}">
+    {% for article in articles %}
+        <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
+    {% endfor %}
+</ol>
+{% endfor %}
+{% endblock %}

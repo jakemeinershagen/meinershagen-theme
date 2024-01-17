@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="{% block html_language %}{{ DEFAULT_LANG }}{% endblock html_language %}">
+
+<head>
+    {% block head %}
+    <title>{% block title %}{{ SITENAME }}{% endblock %}</title>
+    <meta charset="utf-8"/>
+    <meta name="generator" content="Pelican"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/main.css"/>
+    {% endblock %}
+</head>
+<body>
+    <nav><ul>
+    {% for title, link in MENUITEMS %}
+        <li><a href="{{ link }}">{{ title }}</a></li>
+    {% endfor %}
+    </ul></nav>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    <div class="footer-background">
+        <footer>
+            <div class="prepend-footer">
+            {% block prepend_footer %}
+            {% endblock %}
+            </div>
+            <div class="default-footer">
+                <p>Powered by <a href="https://getpelican.com">Pelican</a></p>
+                <p>&copy; YYYY, Author, All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

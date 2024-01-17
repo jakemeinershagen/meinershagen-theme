@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}{{ category }}{% endblock %}
+
+{% block content %}
+<h1>Category: {{ category }}</h1>
+
+{% for article in articles %}
+    <p><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></p>
+{% endfor %}
+{% endblock %}

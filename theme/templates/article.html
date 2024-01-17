@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}{{ article.title }}{% endblock %}
+
+{% block head %}
+    {{ super() }}
+    {% for tag in article.tags %}
+        <meta name="tag" content="{{ tag }}"/>
+    {% endfor %}
+{% endblock %}
+
+{% block content %}
+<h1>{{ article.title }}</h1>
+{% if article.authors %}
+<address>
+    By {% for author in article.authors %}
+        <a href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a>
+    {% endfor %}
+</address>
+{% endif %}
+
+{{ article.content }}
+
+{% if article.series %}
+<br><br>
+    {% if article.series.previous %}
+        <a href="{{ SITEURL }}/{{ article.series.previous.url }}">Previous</a>
+    {% endif %}
+    {% if article.series %}
+        <a href="{{ SITEURL }}/tables-of-contents.html#{{ article.series.name }}">TOC</a>
+    {% endif %}
+    {% if article.series.next %}
+        <a href="{{ SITEURL }}/{{ article.series.next.url }}">Next</a>
+    {% endif %}
+{% endif %}
+
+<br><br>
+{% endblock %}
+
+{% block prepend_footer %}
+{% if article.tags %}
+    <p>
+        Tags: 
+        {% for tag in article.tags %}
+            <a href="{{ tag.url }}">{{ tag }}</a>
+        {% endfor %}    
+    </p>
+{% endif %}
+<p>
+    <em>Created: {{ article.date.strftime(DEFAULT_DATE_FORMAT) }}</em><br>
+    {% if article.modified and article.date != article.modified %}
+        <em>Updated: {{ article.modified.strftime(DEFAULT_DATE_FORMAT) }}</em>
+    {% endif %}
+</p>
+{% endblock %}
