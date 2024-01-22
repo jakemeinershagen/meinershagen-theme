@@ -21,6 +21,7 @@ main {
     margin:  0 auto;
     flex: 1 0 auto;
     max-width: 50em;
+    width: 100%;
 }
 
 img {
@@ -29,7 +30,8 @@ img {
 
 a {
     color: var(--link-default);
-    text-decoration: none;
+    /*text-decoration: none;*/
+    word-wrap: break-word;
 }
 
 a:visited {
@@ -65,6 +67,7 @@ nav li a {
     text-align: center;
     color: var(--text);
     padding: 10px;
+    text-decoration: none;
 }
 
 nav li a:visited {
@@ -88,7 +91,7 @@ footer {
 
 footer p {
     margin: 5px 0;
-    font-size: 12px;
+    font-size: 75%;
 }
 
 footer .default-footer{
@@ -102,4 +105,16 @@ footer .default-footer{
 
 footer .default-footer p{
     text-align: right;
+}
+
+.image-with-caption img {
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+}
+
+.image-with-caption p {
+    text-align: center;
+    font-size: 75%;
+    margin: 0;
 }

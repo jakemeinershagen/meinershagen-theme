@@ -26,17 +26,18 @@ MENUITEMS = [
     # ("Categories", "/categories.html"),
     # ("Tags", "/tags.html"),
     # ("Series", "/series.html"),
-    ("Articles", "/archives.html"),
-    ("About Me", "/about-me.html")
+    ("All Articles", "/archives.html"),
+    ("About Me", "/about-me")
 ]
 
 # might wind up needing to add 'images' to this
-STATIC_PATHS = ['extra/favicon.ico']
+STATIC_PATHS = ['images', 'extra/favicon.ico', 'extra/robots.txt']
 DEFAULT_METADATA = {
     'status': 'draft',
 }
 EXTRA_PATH_METADATA = {
-    'extra/favicon.ico': {'path': 'favicon.ico'}
+    'extra/favicon.ico': {'path': 'favicon.ico'},
+    'extra/robots.txt': {'path': 'robots.txt'}
 }
 
 # THEME configs
@@ -49,6 +50,8 @@ RECENT_POST_LIST_LENGTH = 5
 
 TEMPLATE_PAGES = {
     'tables-of-contents.html': 'tables-of-contents.html',
-    'series.html': 'series.html',
-    'about-me.html': 'about-me.html'
+    'series.html': 'series.html'
 }
+
+PAGE_URL = '{slug}/'
+PAGE_SAVE_AS = '{slug}.html'

@@ -1,14 +1,16 @@
 {% extends "base.html" %}
 
-{# My theory is that this has something to do with pagination
-    so I don't think it should ever be used since I have a default
-    pagination of false and I'm not explicitly paginating anything
-    else. If I want to do pagination, this will probably break
-    something, which is good because then I'll know why this
-    template exists #}
+{% block head %}
+    {{ super() }}
+    {% if page.description %}
+    <meta name="description" content="{{page.description}}" />
+    {% endif %}
+{% endblock %}
 
-{% block title %}Why are you here?{% endblock %}
+{% block title %}{{ page.title }}{% endblock %}
 
 {% block content %}
-<h1>Somehow you wound up here. Idk how.</h1>
+
+    {{ page.content }}
+
 {% endblock %}

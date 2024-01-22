@@ -6,6 +6,9 @@
     {% for tag in article.tags %}
         <meta name="tag" content="{{ tag }}"/>
     {% endfor %}
+    {% if article.description %}
+        <meta name="description" content="{{article.description}}" />
+    {% endif %}
 {% endblock %}
 
 {% block content %}
