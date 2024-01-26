@@ -4,13 +4,21 @@
     {{ super() }}
 
     <link rel="stylesheet" href="{{ SITEURL }}/theme/css/index.css">
+    <meta name="description" content="A website about technology and astronomy.">
 {% endblock %}
 
 {% block content %}
 <section id="content">
-<h1>Welcome!</h1>
+<h1>Hi, I'm Jake.</h1>
 
-<h3><a href="{{ SITEURL }}/about-me.html">About Me</a></h3>
+<p>I'm a software developer and amateur astronomer. I'm actively developing content on this site related to those things. Currently, there isn't a ton here. To make up for it, here is a picture of Saturn's North Pole. It has a hexagonal storm. Neat.</p>
+
+<p>You can read more about me <a href="{{ SITEURL }}/about-me">here</a>.</p>
+
+<div class="image-with-caption">
+    <img alt="north pole of saturn" src="{{ SITEURL }}/images/saturn-north-pole-cassini.jpg"/>
+    Credit: <a href="https://photojournal.jpl.nasa.gov/catalog/PIA21348">NASA/JPL-Caltech/Space Science Institute</a>
+</div>
 
 <h3>Recent Posts</h3>
 <ul>
